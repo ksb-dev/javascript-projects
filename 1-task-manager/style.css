@@ -276,3 +276,11 @@ ul li span .edit-item:hover {
     width: 70%;
   } */
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}

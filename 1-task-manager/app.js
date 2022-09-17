@@ -7,6 +7,12 @@ const filterInput = document.querySelector('#filter')
 const taskList = document.querySelector('.collection')
 const clearBtn = document.querySelector('.clear-tasks')
 
+const editBox = document.querySelector('.box-3')
+const editForm = document.querySelector('#edit-form')
+const editInput = document.querySelector('#edit')
+const editBtn = document.querySelector('.editBtn')
+const cancelBtn = document.querySelector('.cancelBtn')
+
 // 6. On document load get tasks from Local Storage
 document.addEventListener('DOMContentLoaded', getTasks)
 
@@ -168,7 +174,9 @@ taskList.addEventListener('click', editTask)
 
 function editTask (e) {
   if (e.target.parentElement.classList.contains('edit-item')) {
-    taskInput.value =
+    editBox.classList.add('show')
+
+    editInput.value =
       e.target.parentElement.parentElement.parentElement.textContent
     // if (confirm('Are you sure?')) {
     //   e.target.parentElement.parentElement.remove()
@@ -264,3 +272,10 @@ function removeTasksFromLocalStorage (taskToBeDelete) {
 function clearTasksFromLocalStorage () {
   localStorage.clear()
 }
+
+// Buttons
+cancelBtn.addEventListener('click', function (e) {
+  e.preventDefault()
+
+  editBox.classList.remove('show')
+})
