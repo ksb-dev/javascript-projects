@@ -2,7 +2,7 @@
 
 const form = document.querySelector('#task-form')
 const taskInput = document.querySelector('#task')
-const addTaskBtn = document.querySelector('.add-task')
+const addTaskBtn = document.querySelector('.addBtn')
 const filterInput = document.querySelector('#filter')
 const taskList = document.querySelector('.collection')
 const clearBtn = document.querySelector('.clear-tasks')
@@ -35,9 +35,9 @@ function getTasks () {
     // Create link element
     const deleteLink = document.createElement('a')
     // Add Class
-    deleteLink.className = 'delete-item secondary-content'
+    deleteLink.className = 'delete-item'
     // Add Icon
-    deleteLink.innerHTML = '<i class="fa fa-remove"><i>'
+    deleteLink.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
 
     // Append deleteLink to li element
     li.appendChild(deleteLink)
@@ -60,6 +60,7 @@ function addTask (e) {
 
   if (taskInput.value === '') {
     alert('Please Enter Task')
+    return
   }
 
   // Create li element
@@ -79,7 +80,7 @@ function addTask (e) {
   // Add Class
   deleteLink.className = 'delete-item secondary-content'
   // Add Icon
-  deleteLink.innerHTML = '<i class="fa fa-remove"><i>'
+  deleteLink.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
 
   // Append deleteLink to li element
   li.appendChild(deleteLink)
@@ -144,7 +145,7 @@ function filterTasks (e) {
     const item = task.firstChild.textContent
 
     if (item.toLowerCase().indexOf(typedText) != -1) {
-      task.style.display = 'block'
+      task.style.display = 'flex'
     } else {
       task.style.display = 'none'
     }
