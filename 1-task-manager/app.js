@@ -32,15 +32,38 @@ function getTasks () {
 
     // --------------
 
-    // Create link element
+    // Create span element
+    const spanElement = document.createElement('span')
+    spanElement.className = 'edit-delete'
+
+    // --------------
+
+    // Create edit link
+    const editLink = document.createElement('a')
+    // Add Class
+    editLink.className = 'edit-item'
+    // Add Icon
+    editLink.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>'
+
+    // Append edit link to span element
+    spanElement.appendChild(editLink)
+
+    // --------------
+
+    // Create delete link
     const deleteLink = document.createElement('a')
     // Add Class
     deleteLink.className = 'delete-item'
     // Add Icon
     deleteLink.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
 
-    // Append deleteLink to li element
-    li.appendChild(deleteLink)
+    // Append delete link to span element
+    spanElement.appendChild(deleteLink)
+
+    // --------------
+
+    // Append span to li element
+    li.appendChild(spanElement)
 
     // ---------------
 
@@ -75,15 +98,38 @@ function addTask (e) {
 
   // --------------
 
-  // Create link element
+  // Create span element
+  const spanElement = document.createElement('span')
+  spanElement.className = 'edit-delete'
+
+  // --------------
+
+  // Create edit link
+  const editLink = document.createElement('a')
+  // Add Class
+  editLink.className = 'edit-item'
+  // Add Icon
+  editLink.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>'
+
+  // Append edit link to span element
+  spanElement.appendChild(editLink)
+
+  // --------------
+
+  // Create delete link
   const deleteLink = document.createElement('a')
   // Add Class
-  deleteLink.className = 'delete-item secondary-content'
+  deleteLink.className = 'delete-item'
   // Add Icon
   deleteLink.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
 
-  // Append deleteLink to li element
-  li.appendChild(deleteLink)
+  // Append delete link to span element
+  spanElement.appendChild(deleteLink)
+
+  // --------------
+
+  // Append span to li element
+  li.appendChild(spanElement)
 
   // ---------------
 
@@ -106,11 +152,30 @@ taskList.addEventListener('click', removeTask)
 function removeTask (e) {
   if (e.target.parentElement.classList.contains('delete-item')) {
     if (confirm('Are you sure?')) {
-      e.target.parentElement.parentElement.remove()
+      e.target.parentElement.parentElement.parentElement.remove()
 
       // 7. Remove tasks from Local Storage
-      removeTasksFromLocalStorage(e.target.parentElement.parentElement)
+      removeTasksFromLocalStorage(
+        e.target.parentElement.parentElement.parentElement
+      )
     }
+  }
+}
+
+// 9. Update Task (Using Event Delegation)
+
+taskList.addEventListener('click', editTask)
+
+function editTask (e) {
+  if (e.target.parentElement.classList.contains('edit-item')) {
+    taskInput.value =
+      e.target.parentElement.parentElement.parentElement.textContent
+    // if (confirm('Are you sure?')) {
+    //   e.target.parentElement.parentElement.remove()
+
+    //   // 7. Remove tasks from Local Storage
+    //   //removeTasksFromLocalStorage(e.target.parentElement.parentElement)
+    // }
   }
 }
 

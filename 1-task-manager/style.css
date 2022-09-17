@@ -14,6 +14,7 @@ body {
   justify-content: center;
   width: 100vw;
   margin-top: 5rem;
+  overflow: auto;
 }
 
 .inner {
@@ -24,6 +25,7 @@ body {
   justify-content: center;
   border-radius: 5px;
   background: #fff;
+  margin-bottom: 2rem;
 }
 
 .box-1 {
@@ -78,7 +80,7 @@ form input:focus::placeholder {
   color: transparent;
 }
 
-button {
+.addBtn {
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -89,7 +91,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.addBtn:hover {
   transform: rotate(360deg);
   transition: all 0.3s ease;
 }
@@ -101,10 +103,6 @@ button:hover {
   align-items: center;
   justify-content: center;
   padding-bottom: 2rem;
-}
-
-.box-2 span {
-  margin-bottom: 1rem;
 }
 
 .box-2-inner {
@@ -157,12 +155,19 @@ ul li:hover {
   transition: all 0.3s ease;
 }
 
-ul li .delete-item {
+ul li span .delete-item {
   color: red;
   cursor: pointer;
 }
 
-ul li .delete-item:hover {
+ul li span .edit-item {
+  color: #4285f4;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+ul li span .delete-item:hover,
+ul li span .edit-item:hover {
   transform: rotate(10deg) scale(1.2);
   transition: all 0.3s ease;
 }
@@ -178,6 +183,85 @@ ul li .delete-item:hover {
 }
 
 .clear-tasks:hover {
+  background: linear-gradient(red, tomato);
+}
+
+.box-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 5px #000;
+  border-radius: 5px;
+  background: rgba(66, 133, 244, 0.9);
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-3 form {
+  background: #4c4c4c;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.box-3 form span {
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.box-3 form input {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #fff;
+  margin: 1rem;
+  color: #fff;
+}
+
+.box-3 form input::placeholder {
+  color: #fff;
+  font-weight: 700px;
+}
+
+.box-3 form input:focus::placeholder {
+  color: transparent;
+}
+
+.editBtn,
+.cancelBtn {
+  width: 80px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 0.5rem 0;
+  margin: 0 0.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.editBtn {
+  background: linear-gradient(#92b6f0, #4285f4e6);
+}
+
+.editBtn:hover {
+  background: linear-gradient(#4285f4e6, #92b6f0);
+}
+
+.cancelBtn {
+  background: linear-gradient(tomato, red);
+}
+
+.cancelBtn:hover {
   background: linear-gradient(red, tomato);
 }
 
