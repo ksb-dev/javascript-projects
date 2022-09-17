@@ -168,7 +168,7 @@ function removeTask (e) {
   }
 }
 
-// 9. Update Task (Using Event Delegation)
+// 9. Open Edit form (Using Event Delegation)
 
 taskList.addEventListener('click', editTask)
 

@@ -278,9 +278,15 @@ ul li span .edit-item:hover {
 }
 
 .hide {
-  display: none;
+  transform: scale(0);
+  z-index: -1;
+  /* display: none; */
+  transition: all 0.3s ease;
 }
 
 .show {
-  display: flex;
+  transform: scale(1);
+  z-index: 10;
+  /* display: flex; */
+  transition: all 0.3s ease;
 }
