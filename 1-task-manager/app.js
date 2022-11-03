@@ -81,7 +81,6 @@ function getTasks () {
 // -----------------------------------------------------------------
 
 // 1. Add Task
-
 form.addEventListener('submit', addTask)
 
 function addTask (e) {
@@ -152,7 +151,6 @@ function addTask (e) {
 // -----------------------------------------------------------------
 
 // 2. Remove Task (Using Event Delegation)
-
 taskList.addEventListener('click', removeTask)
 
 function removeTask (e) {
@@ -168,29 +166,50 @@ function removeTask (e) {
   }
 }
 
+// -----------------------------------------------------------------
+
 // 9. Open Edit form (Using Event Delegation)
+taskList.addEventListener('click', openEditTask)
+let value = ''
 
-taskList.addEventListener('click', editTask)
-
-function editTask (e) {
+function openEditTask (e) {
   if (e.target.parentElement.classList.contains('edit-item')) {
     editBox.classList.add('show')
 
     editInput.value =
       e.target.parentElement.parentElement.parentElement.textContent
-    // if (confirm('Are you sure?')) {
-    //   e.target.parentElement.parentElement.remove()
 
-    //   // 7. Remove tasks from Local Storage
-    //   //removeTasksFromLocalStorage(e.target.parentElement.parentElement)
-    // }
+    value = e.target.parentElement.parentElement.parentElement.textContent
   }
+}
+
+// 10. Edit Task
+editBtn.addEventListener('click', editTask)
+
+function editTask (e) {
+  e.preventDefault()
+
+  let tasks = JSON.parse(localStorage.getItem('storedTasks'))
+
+  tasks.forEach(function (task, index) {
+    //console.log(task, value)
+    if (task === value) {
+      //console.log(index, task, value, editInput.value)
+      tasks[index] = editInput.value
+    }
+  })
+
+  localStorage.setItem('storedTasks', JSON.stringify(tasks))
+
+  window.location.reload()
+  //getTasks()
+
+  editBox.classList.remove('show')
 }
 
 // -----------------------------------------------------------------
 
 // 3. Clear tasks
-
 clearBtn.addEventListener('click', clearTasks)
 
 function clearTasks () {
@@ -208,7 +227,6 @@ function clearTasks () {
 // -----------------------------------------------------------------
 
 // 4. Filter Tasks
-
 filterInput.addEventListener('keyup', filterTasks)
 
 function filterTasks (e) {
@@ -228,7 +246,6 @@ function filterTasks (e) {
 // -----------------------------------------------------------------
 
 // 5. Store in Local Storage
-
 function storeTaskInLocalStorage (task) {
   let tasks
 
@@ -246,7 +263,6 @@ function storeTaskInLocalStorage (task) {
 // -----------------------------------------------------------------
 
 // 7. Remove tasks from Local Storage
-
 function removeTasksFromLocalStorage (taskToBeDelete) {
   let tasks
 
@@ -268,7 +284,6 @@ function removeTasksFromLocalStorage (taskToBeDelete) {
 // -----------------------------------------------------------------
 
 // 8. Clear tasks from Local Storage
-
 function clearTasksFromLocalStorage () {
   localStorage.clear()
 }
