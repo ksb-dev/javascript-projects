@@ -7,6 +7,7 @@ body {
   font-family: 'Nunito', sans-serif;
   background: #4285f4;
   background: #db3236;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .container {
@@ -37,6 +38,7 @@ body {
   padding: 2rem 0;
   width: 100%;
   background: rgba(0, 0, 0, 1);
+  background: #4285f4;
   /* margin: 1.2rem 0rem; */
   /* border-radius: 5px; */
   padding-bottom: 2rem;
@@ -104,7 +106,7 @@ form input:focus::placeholder {
   justify-content: center;
   padding-bottom: 2rem;
   background: #f4c20d;
-  background: goldenrod;
+  background: rgb(200, 200, 200);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -154,7 +156,7 @@ ul li {
   color: black;
   margin: 0.5rem 0;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 
 ul li:hover {
@@ -182,7 +184,7 @@ ul li span .edit-item:hover {
 .clear-tasks {
   text-decoration: none;
   background: linear-gradient(tomato, red);
-  border-radius: 5px;
+  border-radius: 50px;
   padding: 0.5rem 1rem;
   color: #fff;
   letter-spacing: 5px;
