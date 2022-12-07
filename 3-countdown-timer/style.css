@@ -13,6 +13,18 @@ body {
   font-family: sans-serif;
 }
 
+.container {
+  height: 200px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  padding: 40px 40px 120px 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
 .container__title {
   padding: 10px 20px;
   font-size: 40px;
@@ -20,14 +32,6 @@ body {
   background: rgb(44, 43, 43);
   color: #fff;
   border-radius: 5px;
-}
-
-.container {
-  height: 200px;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 .container__labels,
@@ -45,7 +49,7 @@ body {
   width: 20%;
   text-align: center;
   font-size: 30px;
-  padding: 5px 10px;
+  padding: 5px 0px;
 }
 
 .container__inputs--time {
@@ -54,7 +58,7 @@ body {
   border: none;
   font-size: 50px;
   width: 90px;
-  height: 50px;
+  height: 70px;
 }
 
 .container__inputs--colon {
@@ -70,7 +74,7 @@ body {
   height: 50px;
   font-size: 30px;
   border: none;
-  border-radius: 50px;
+  border-radius: 5px;
   cursor: pointer;
   color: white;
 }
@@ -78,6 +82,8 @@ body {
 input {
   text-align: center;
   outline: none;
+  border-radius: 5px;
+  background: rgb(230, 230, 230);
 }
 
 .start {
